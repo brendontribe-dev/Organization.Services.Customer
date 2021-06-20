@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Organization.Services.Customer.Enumerables\Organization.Services.Customer.Enumerables.csproj" />
+    <ProjectReference Include="..\Organization.Services.Customer.Models\Organization.Services.Customer.Models.csproj" />
+  </ItemGroup>
+
+</Project>
