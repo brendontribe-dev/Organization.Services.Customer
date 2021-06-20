@@ -97,3 +97,4 @@ Some of the more important items are outlined below:
 - complete unit tests
 - configure AWS account for SES messaging, SQS, and a lambda to consume messages and send an email SES
 - Remove sql from services and make non dependent on the postgres DB
+- Fix .gitignore 
