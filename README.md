@@ -99,3 +99,5 @@ Some of the more important items are outlined below:
 - Remove sql from services and make non dependent on the postgres DB
 - Fix .gitignore 
 - Docker support
+- Proper use of FKs
+- Using Polly for exponential time DB retries
