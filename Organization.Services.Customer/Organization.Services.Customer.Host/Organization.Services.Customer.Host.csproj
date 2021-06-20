@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql" Version="5.0.7" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Organization.Services.Customer.Enumerables\Organization.Services.Customer.Enumerables.csproj" />
+    <ProjectReference Include="..\Organization.Services.Customer.Interfaces\Organization.Services.Customer.Interfaces.csproj" />
+    <ProjectReference Include="..\Organization.Services.Customer.Models\Organization.Services.Customer.Models.csproj" />
+    <ProjectReference Include="..\Organization.Services.Customer.Services\Organization.Services.Customer.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>
