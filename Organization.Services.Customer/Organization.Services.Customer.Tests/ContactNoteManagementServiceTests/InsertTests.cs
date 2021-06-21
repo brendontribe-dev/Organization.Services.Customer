@@ -45,7 +45,7 @@ namespace Organization.Services.Customer.Tests.ContactNoteManagementServiceTests
             //TODO:_repositoryService.Setup(x => x.Insert<CustomerNote>(It.IsAny<IEnumerable<CustomerNote>>())).ReturnsAsync(false);
             _repositoryService.Setup(x => x.ExecuteAsync<CustomerNote>(It.IsAny<string>())).ReturnsAsync(false);
             
-            var result = await _service.Insert(CustomerNote());
+            var result = await _service.Insert(new CustomerNote());
 
             result.GetType().Should().Be(typeof(CustomerNoteFailureResult));
             var failureResult = (CustomerNoteFailureResult)result;
