@@ -95,6 +95,7 @@ namespace Organization.Services.Customer.Services
                 return BuildCustomerNoteResult(false, string.Empty, "Notes must apply to exactly one customer");
             */
 
+            //does not require OCC as we are not doing an initial select, we just overwrite
             var customerNotesSql = $"update customer_note set \"Contents\" = '{customerNotes.Contents}' where \"NoteId\" = '{customerNotes.NoteId}';";
 
             var result = _repositoryService.ExecuteAsync<CustomerNote>(customerNotesSql);

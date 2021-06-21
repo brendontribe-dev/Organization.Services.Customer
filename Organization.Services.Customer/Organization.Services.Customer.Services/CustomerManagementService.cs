@@ -69,8 +69,8 @@ namespace Organization.Services.Customer.Services
             var customerSql = $@"insert into customer values ({string.Join(", ", new List<string> {
                     "'"+customer.CustomerId.ToString()+"'",
                     ""+(int)customer.Status,
-                    "'"+ToPGDate(customer.CreatedAt)+"'",
-                    "'"+ToPGDate(customer.UpdatedAt)+"'",
+                    "'"+ToPGDate(DateTime.UtcNow)+"'",
+                    "'"+ToPGDate(DateTime.UtcNow)+"'",
                     "'"+customer.FirstName+"'",
                     "'"+customer.LastName+"'",
                     "'"+customer.PreferredName+"'",
@@ -130,7 +130,8 @@ namespace Organization.Services.Customer.Services
             var existing = await _repositoryService.SelectSingle<Models.Customer>($" WHERE \"CustomerId\" = '{customer.CustomerId}'");
             if (existing == null) return BuildCustomerResult(false, string.Empty, "Customer could not be found, please try adding a new customer");
 
-            var customerSql = $"update customer set \"Status\" = {(int)customer.Status} where \"CustomerId\" = '{customer.CustomerId}';";
+            //these sql queries really need to be replaced... 
+            var customerSql = $"update customer set \"Status\" = {(int)customer.Status}, \"UpdatedAt\" = '{ToPGDate(DateTime.UtcNow)}' where \"CustomerId\" = '{customer.CustomerId}' and \"UpdatedAt\" = '{ToPGDate(existing.UpdatedAt)}';";
             var customerResult = await _repositoryService.ExecuteAsync<Models.Customer>(customerSql);
 
             return BuildCustomerResult(
